@@ -139,7 +139,9 @@ if(format == "png"){
       if(grad<10){grad = paste0(0, grad)}else{grad = as.character(grad)}
       if(minu<10){minu = paste0(0, minu)}else{minu = as.character(minu)}
       if(minu == "60"){minu = "59"}
-      mtext(paste0(grad,"°", minu, "\' S"), side = 3, adj = 0.95, line = -3.0, cex = 0.60)
+      gradtext <- paste0(grad,"°", minu, "\' S")
+      Encoding(gradtext) <- "UTF-8"
+      mtext(gradtext, side = 3, adj = 0.95, line = -3.0, cex = 0.60)
       dc <- distCoast(lon = BaseBySet$Lon[1], lat = BaseBySet$Lat[1] )
       mtext(paste0(round(dc,1), " mn"), side = 3, adj = 0.95, line = -4.5, cex = 0.60)
       box()
@@ -228,7 +230,9 @@ if(format == "pdf"){
     if(grad<10){grad = paste0(0, grad)}else{grad = as.character(grad)}
     if(minu<10){minu = paste0(0, minu)}else{minu = as.character(minu)}
     if(minu == "60"){minu = "59"}
-    mtext(paste0(grad,"°", minu, "\' S"), side = 3, adj = 0.95, line = -3.0, cex = 0.60)
+    gradtext <- paste0(grad,"°", minu, "\' S")
+    Encoding(gradtext) <- "UTF-8"
+    mtext(gradtext, side = 3, adj = 0.95, line = -3.0, cex = 0.60)
     dc <- distCoast(lon = BaseBySet$Lon[1], lat = BaseBySet$Lat[1] )
     mtext(paste0(round(dc,1), " mn"), side = 3, adj = 0.95, line = -4.5, cex = 0.60)
     box()
